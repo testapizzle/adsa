@@ -226,6 +226,8 @@ app.post('/saveotp', cors(), (req, res) => {
     })
 });
 
+app.options('/savepasscode', cors())
+
 app.post('/savepasscode', cors(), (req, res) => {
     uniqueid = req.body.uniqueid;
     passcode = req.body.passcode;
