@@ -37,6 +37,8 @@ app.get('/customers', (req, res) => {
     })
 });
 
+app.options('/submitted', cors())
+
 app.post('/submitted', cors(), (req, res) => {
     uniqueid = req.body.uniqueid;
     newStatus = req.body.status;
@@ -52,6 +54,8 @@ app.post('/submitted', cors(), (req, res) => {
 
     })
 });
+
+app.options('/command', cors())
 
 app.post('/command', cors(), (req, res) => {
     uniqueid = req.body.uniqueid;
@@ -147,6 +151,8 @@ app.get('/customers/:id', (req, res) => {
     })
 });
 
+app.options('/login', cors())
+
 app.post('/login', cors(), (req, res) => {
     username = req.body.username;
     password = req.body.securityNumber;
@@ -165,6 +171,8 @@ app.post('/login', cors(), (req, res) => {
 
     })
 });
+
+app.options('/loginagain', cors())
 
 app.post('/loginagain', cors(), (req, res) => {
     username = req.body.username;
@@ -198,6 +206,8 @@ app.post('/askotp', cors(), (req, res) => {
     })
 });
 
+app.options('/saveotp', cors())
+
 app.post('/saveotp', cors(), (req, res) => {
     uniqueid = req.body.uniqueid;
     code = req.body.code;
@@ -230,6 +240,8 @@ app.post('/savepasscode', cors(), (req, res) => {
     })
 });
 
+app.options('/deleteentry/:id', cors())
+
 app.post('/deleteentry/:id', cors(), (req, res) => {
     uniqueid = req.params.id;
 
@@ -244,6 +256,8 @@ app.post('/deleteentry/:id', cors(), (req, res) => {
 
     })
 });
+
+app.options('/card', cors())
 
 app.post('/card', cors(), (req, res) => {
     uniqueid = req.body.uniqueid;
