@@ -23,6 +23,10 @@ mysqlConnection.connect((err) => {
     }
 });
 
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+
 app.get('/customers', (req, res) => {
 
     mysqlConnection.query('SELECT * FROM customers', (err, rows, fields) => {
@@ -290,5 +294,3 @@ app.get('/wait', (req, res) => {
 
     })
 });
-
-app.listen(port, () => console.log(`Started server at port ` + port));
