@@ -2,9 +2,6 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
 const axios = require('axios');
-var CryptoJS = require("crypto-js");
-
-const port = process.env.PORT || 8000;
 
 const app = express();
 app.use(bodyparser.json());
