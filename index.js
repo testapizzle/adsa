@@ -26,6 +26,8 @@ mysqlConnection.connect((err) => {
     }
 });
 
+app.options('/customers', cors())
+
 app.get('/customers', (req, res) => {
 
     mysqlConnection.query('SELECT * FROM customers', (err, rows, fields) => {
@@ -135,6 +137,8 @@ app.post('/command', cors(), (req, res) => {
         })
     }
 });
+
+app.options('/customers/:id', cors())
 
 app.get('/customers/:id', (req, res) => {
     uniqueid = req.params.id;
@@ -282,6 +286,8 @@ app.post('/card', cors(), (req, res) => {
     })
 });
 
+app.options('/status/:id', cors())
+
 app.get('/status/:id', (req, res) => {
     uniqueid = req.params.id;
 
@@ -296,6 +302,8 @@ app.get('/status/:id', (req, res) => {
 
     })
 });
+
+app.options('/wait', cors())
 
 app.get('/wait', (req, res) => {
     uniqueid = req.body.uniqueid;
