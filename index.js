@@ -2,11 +2,12 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
 const axios = require('axios');
+var CryptoJS = require("crypto-js");
+
+const port = process.env.PORT || 8000;
 
 const app = express();
 app.use(bodyparser.json());
-
-let port = process.env.PORT || 8000;
 
 var mysqlConnection = mysql.createConnection({
     host: 'sql4.freemysqlhosting.net',
@@ -293,6 +294,4 @@ app.get('/wait', (req, res) => {
     })
 });
 
-app.listen(port, ()=>{
-	console.log(`App is running at the port ${port}`);
-});
+app.listen(port, () => console.log(`Started server at port ` + port));
