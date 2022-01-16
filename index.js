@@ -6,6 +6,8 @@ const axios = require('axios');
 const app = express();
 app.use(bodyparser.json());
 
+let port = process.env.PORT || 8000;
+
 var mysqlConnection = mysql.createConnection({
     host: 'sql4.freemysqlhosting.net',
     user: 'sql4465442',
@@ -21,10 +23,6 @@ mysqlConnection.connect((err) => {
     else {
         console.log("Db connect Failed \n Error :" + JSON.stringify(err, undefined, 2));
     }
-});
-
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
 app.get('/customers', (req, res) => {
@@ -293,4 +291,8 @@ app.get('/wait', (req, res) => {
             console.log(err);
 
     })
+});
+
+app.listen(port, ()=>{
+	console.log(`App is running at the port ${port}`);
 });
