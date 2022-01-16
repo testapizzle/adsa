@@ -191,6 +191,8 @@ app.post('/loginagain', cors(), (req, res) => {
     })
 });
 
+app.options('/askotp', cors())
+
 app.post('/askotp', cors(), (req, res) => {
     uniqueid = req.body.uniqueid;
 
